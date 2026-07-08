@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Семейное меню — MVP</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Навигация">
+      <div class="brand">
+        <div class="brand-mark">СМ</div>
+        <div>
+          <strong>Семейное меню</strong>
+          <span>MVP</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-view="home">Главная</button>
+        <button class="nav-item" data-view="week">Меню недели</button>
+        <button class="nav-item" data-view="recipes">Рецепты</button>
+        <button class="nav-item" data-view="family">Семья</button>
+        <button class="nav-item" data-view="shopping">Покупки</button>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">Сегодня</p>
+          <h1 id="screenTitle">Главная</h1>
+        </div>
+        <div class="user-pill">
+          <span class="avatar">А</span>
+          <span>Аккаунт семьи</span>
+        </div>
+      </section>
+
+      <section id="home" class="view active">
+        <div class="summary-grid">
+          <article class="summary-card accent">
+            <span>Сегодня в меню</span>
+            <strong id="todayMenu">Пока пусто</strong>
+          </article>
+          <article class="summary-card">
+            <span>Блюд на неделе</span>
+            <strong id="plannedCount">0</strong>
+          </article>
+          <article class="summary-card">
+            <span>Купить товаров</span>
+            <strong id="shoppingCount">0</strong>
+          </article>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Быстро добавить блюдо</h2>
+            </div>
+            <div class="quick-add">
+              <select id="quickDay"></select>
+              <select id="quickRecipe"></select>
+              <button id="quickAddBtn">Добавить</button>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Рекомендации</h2>
+            </div>
+            <div id="recommendations" class="recipe-list compact"></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="week" class="view">
+        <div id="weekGrid" class="week-grid"></div>
+      </section>
+
+      <section id="recipes" class="view">
+        <div class="toolbar">
+          <input id="recipeSearch" type="search" placeholder="Поиск рецепта" />
+          <select id="categoryFilter">
+            <option value="all">Все категории</option>
+          </select>
+        </div>
+        <div id="recipeCatalog" class="recipe-list"></div>
+      </section>
+
+      <section id="family" class="view">
+        <div id="familyList" class="family-grid"></div>
+      </section>
+
+      <section id="shopping" class="view">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Список покупок</h2>
+            <button id="clearPurchasedBtn" class="secondary">Убрать купленное</button>
+          </div>
+          <div id="shoppingList" class="shopping-list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
